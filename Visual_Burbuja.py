@@ -22,7 +22,7 @@ def main(page: ft.Page):    #Se encargara de generar la ventana
     row = ft.Row(controls=create_containers (10))   #Le decimos cuantos contenedores se hagan
     page.add(row)   #Agrega los contenedores de manera horizontal en la ventana
 
-    time.sleep(4)   #
+    time.sleep(1)   #
     
     arr = row.controls  #Definimos el arreglo 
 
@@ -32,7 +32,7 @@ def main(page: ft.Page):    #Se encargara de generar la ventana
         for j in range(0, n-i-1):   #Acorta la veces que se va acompara al ordenar 
             arr[j].bgcolor = ft.colors.ORANGE
             arr[j + 1].bgcolor = ft.colors.ORANGE
-            time.sleep(0.5)
+            time.sleep(1)
             page.update()  #Actualiza la pagina con los cambios que se hicieron 
             if int (arr[j].content.value) > int(arr[j + 1].content.value) : #Si mi valor del arreglo en la posicion j es mayor que el arreglo que la posicion j+1 
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]   #Se hace el intercambio de posicion 
@@ -41,6 +41,9 @@ def main(page: ft.Page):    #Se encargara de generar la ventana
         arr[n-i-1].bgcolor = ft.colors.GREEN
 #Finaliza lo logica
 
+    page.update()  #Actualiza la pagina con los cambios que se hicieron
+
+ft.app(target = main)     #Genera la ventana con la logica que haya en main
     page.update()  #Actualiza la pagina con los cambios que se hicieron
 
 ft.app(target = main)     #Genera la ventana con la logica que haya en main
